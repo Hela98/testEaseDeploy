@@ -21,30 +21,30 @@ from flask_github import GitHub
 app = Flask(__name__)
 
 
-app.config['GITHUB_CLIENT_ID'] = "Iv1.661bd3d1d057d682"
-app.config['GITHUB_CLIENT_SECRET'] = "515a5f63bc2241f2497aec2fc860c81a311c2fdd"
+app.config['GITHUB_CLIENT_ID'] = ""
+app.config['GITHUB_CLIENT_SECRET'] = ""
 # For GitHub Enterprise
 app.config['GITHUB_BASE_URL'] = 'https://api.github.com/'
 app.config['GITHUB_AUTH_URL'] = 'https://github.com/login/oauth/'
 github = GitHub(app)
 
 
-app.config['JENKINS_USERNAME']='hela'
-app.config['JENKINS_PASSWORD']='e1a2e673d87f4a7bbe5e6ad6051bfd88'
+app.config['JENKINS_USERNAME']=''
+app.config['JENKINS_PASSWORD']=''
 app.config['JENKINS_URL']='http://localhost:8080/'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///devOps.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 SECRET_KEY = os.urandom(32)
 
-app.config['SECRET_KEY'] = '522e542ab915edba480119d0'
+app.config['SECRET_KEY'] = ''
 ts = URLSafeSerializer(app.config["SECRET_KEY"])
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
 app.config['BASE_URL'] = 'http://127.0.0.1:5000'  #Running on localhost
-app.config['JWT_SECRET_KEY'] = 'jkhjfeksqgbfozeLHFNUEHDb'  # Change this!
+app.config['JWT_SECRET_KEY'] = ''  # Change this!
 app.config['JWT_TOKEN_LOCATION'] = ['cookies']
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(seconds = 1800)
 app.config['JWT_COOKIE_CSRF_PROTECT'] = False
@@ -58,8 +58,8 @@ manager.add_command('db', MigrateCommand)
 
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 
-print(detect.py2)
-print(detect.py3)
+#print(detect.py2)
+#print(detect.py3)
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = "1"
 
