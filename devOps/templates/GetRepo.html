@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home Page
+{% endblock %}
+{% block content %}
+
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-signin" style="color:white">
+            {{ form.hidden_tag() }}
+            <img class="mb-4" src="https://crafteo.io/img/devops.png" alt="" height="80" width="130">
+            <h1 class="h3 mb-3 font-weight-normal">
+                Add your new project 
+            </h1>
+            <br>
+            {{ form.nameOfProject.label() }}
+            {{ form.nameOfProject(class="form-control", placeholder="Name of your project") }}
+            {{ form.gitRepo.label() }}
+            {{ form.gitRepo(class="form-control", placeholder="URL of your git repository") }}
+            {{ form.entry_file.label() }}
+            {{ form.entry_file(class="form-control", placeholder="Entry file of the application") }}
+
+            {{ form.path.label() }}
+            {{ form.path(class="form-control", placeholder="Git local repository") }}
+
+            <br>
+
+
+            
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+</body>
+
+{% endblock %}

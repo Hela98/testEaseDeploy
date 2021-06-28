@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}
+    All Users page
+{% endblock %}
+
+
+{% block content %}
+{% if current_user.admin %}
+                            
+      <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">Name of project</th>
+                <th scope="col">Git repository</th>
+                <th scope="col">Entry file</th>
+                <th scope="col">Framework</th>
+                <th scope="col">Project owner</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.name_app }}</td>
+                    <td>{{ item.git_repository }}</td>
+                    <td>{{ item.entry_file }}</td>
+                    <td>{{ item.frameworkOfApp}}</td>
+                    <td>{{ item.projectOwner}}</td>
+                    <td>
+                        <form id="project_form" action= "{{ url_for('get_all_projects') }}"method="POST">
+                            
+                            <input type='hidden' value='{{ item.name_app}}' name='name_app'>
+                            <input type='hidden' value='{{ item.projectOwner}}' name='projectOwner'>
+                            <button type="submit" class="btn btn-light" name="action" value="more">more</button>
+                            <button class="btn btn-outline btn-success" type="submit" name="action" value="update">Update project</button>
+                            <button class="btn btn-outline btn-info" type="submit" name="action" value="delete">Delete project</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form id="add_project" action= "{{ url_for('get_all_projects') }}"method="POST">
+    <button class="btn btn-outline btn-success" type="submit" name="action" value="create">Add new project</button>
+</form>
+{% endif %}
+{% if not current_user.admin %}
+                            
+      <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">Name of project</th>
+                <th scope="col">Git repository</th>
+                <th scope="col">Entry file</th>
+                <th scope="col">Framework</th>
+                <th scope="col">JenkinsFile</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for item in data %}
+                <tr>
+                    <td>{{ item.NameOfProject }}</td>
+                    <td>{{ item.GitRepository }}</td>
+                    <td>{{ item.EntryFile }}</td>
+                    <td>{{ item.FrameworkOfProject}}</td>
+                    <td>{{ item.JenkinsFile}}</td>
+                    <td>
+                        <form id="project_form2" action= "{{ url_for('get_my_projects') }}"method="POST">
+                            
+                            <input type='hidden' value='{{ item.NameOfProject}}' name='NameOfProject'>
+                            
+                            <button type="submit" class="btn btn-light" name="action" value="more">more</button>
+                            <button class="btn btn-outline btn-success" type="submit" name="action" value="update">Update project</button>
+                            <button class="btn btn-outline btn-info" type="submit" name="action" value="delete">Delete project</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form id="add_project2" action= "{{ url_for('get_my_projects') }}"method="POST">
+    <button class="btn btn-outline btn-success" type="submit" name="action" value="create">Add new project</button>
+</form>
+{% endif %}
+{% endblock %}

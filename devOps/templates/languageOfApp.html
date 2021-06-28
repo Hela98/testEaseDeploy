@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+    Programming languages of the app
+{% endblock %}
+{% block content %}
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Programming Language</th>
+            <th scope="col">%</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+        {% for key, value in dic.items() %}
+            <tr>
+                <td>{{ key}}</td>
+                <td>{{ value }}</td>
+                
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<h4>Framework Of the application </h4>
+{% if listResultOfDetectionOfFramework[0] %}
+<p>
+    {{ listResultOfDetectionOfFramework[0] }}
+</p>
+{% endif %}
+{% if not listResultOfDetectionOfFramework[0] %}
+<p>
+    Not framework detected!
+</p>
+{% endif %}
+
+<button type="button" class="btn btn-light btn-lg">Generate pipeline</button>
+<button type="button" class="btn btn-secondary btn-lg">Deploy application</button>
+{% endblock %}

@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/home/hela/pfa/my_env/bin/python3",
+    "python.autoComplete.extraPaths": [
+        "./home/hela/pfa/devOpsApp"
+    ],
+    "python.analysis.extraPaths": [
+        "./home/hela/pfa/devOpsApp"
+    ],
+}

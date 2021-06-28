@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    Delete user Page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        
+        <form method="POST" class="form-register" style="color:white">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            <img class="mb-4" src="https://crafteo.io/img/devops.png" alt="" height="80" width="130" >
+            <h1 class="h3 mb-3 font-weight-normal">
+                Click YES to delete user
+            </h1>
+            <br>
+            
+            
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <br>
+            <div class="checkbox mb-3">
+                <h6>Click YES to delete the user</h6>
+                <a class="btn btn-sm btn-secondary" href="{{ url_for('get_all_users') }}">Cancel</a>
+             </div>
+           
+             
+            
+            
+            
+
+        </form>
+    </div>
+</body>
+{% endblock %}

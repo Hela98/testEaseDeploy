@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block title %}
+    All Users page
+{% endblock %}
+
+{% block content %}
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Public id</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email_adress</th>
+            <th scope="col">password_hash</th>
+            <th scope="col">Admin?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+        
+            <tr>
+                <td>{{user_data.public_id}}</td>
+                <td>{{user_data.username}}</td>
+                <td>{{user_data.email_address}}</td>
+                <td>{{user_data.password_hash}}</td>
+                <td>{{user_data.admin}}</td>
+                
+            </tr>
+        
+    </tbody>
+</table>
+<br>
+{% if user_data.github_username is defined %}
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">github_username</th>
+            <th scope="col">github_access_token</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+        
+            <tr>
+                <td>{{user_data.github_username}}</td>
+                <td>{{user_data.github_access_token}}</td>
+                
+            </tr>
+        
+    </tbody>
+</table>
+{% endif %}
+<br>
+{% if user_data.projects is defined %}
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Name of project</th>
+            <th scope="col">Framework of project</th>
+            <th scope="col">Git repository</th>
+            <th scope="col">Entry file</th>
+            <th scope="col">Jenkins file</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+        
+            <tr>
+                {% for dict_item in user_data.projects %}
+                    {% for key, value in dict_item.items() %}
+                        <td>{{value}}</td>
+                    {% endfor %}
+                {% endfor %}
+                        
+                
+            </tr>
+        
+    </tbody>
+</table>
+{% endif %}
+
+{% endblock %}

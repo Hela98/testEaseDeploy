@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+    All Users page
+{% endblock %}
+
+{% block content %}
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Name of project</th>
+            <th scope="col">Framework of project</th>
+            <th scope="col">Git repository</th>
+            <th scope="col">Entry file</th>
+            <th scope="col">Project owner</th>
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+        
+        <tr>
+            <td>{{app_data.NameOfProject}}</td>
+            <td>{{app_data.FrameworkOfProject}}</td>
+            <td>{{app_data.GitRepository}}</td>
+            <td>{{app_data.EntryFile}}</td>
+            <td>{{app_data.ProjectOwner}}</td>
+            
+            
+        </tr>
+        
+    </tbody>
+</table>
+
+
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Jenkinsfile</th>
+        
+            
+            
+            
+            
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+        
+        <tr>
+            <td>{{app_data.jenkins_file}}</td>
+            
+        </tr>
+        
+    </tbody>
+</table>
+
+
+{% endblock %}
