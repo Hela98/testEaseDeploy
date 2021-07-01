@@ -35,3 +35,16 @@ Lancement des tests : tests unitaires et tests d'intégration
 Mesure de la qualité de code
 
 Déploiement : déploiement du code en production
+
+
+
+Technologies utilisées
+*Python et Flask
+*Outil de gestion de version : Git  GitHub
+*Outil d’orchestration : Jenkins
+*Technologie de conteneurisation : Docker
+*Outil de mesure de la qualité du code : SonarQube
+*Technologie de configuration d’ordinateurs : Ansible
+
+
+
