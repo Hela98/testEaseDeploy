@@ -29,6 +29,9 @@ L'objectif étant de soulager les développeurs de toutes les tâches d'administ
 Étant connectée à des outils Open Source du DevOps, cette plateforme permet à l'utilisateur de faire passer le code source venu d’un système de contrôle de versions (Git) par toutes les étapes du pipeline d’automatisation qui sont :
 
 La création : compilation de l'application
+
 Lancement des tests : tests unitaires et tests d'intégration
+
 Mesure de la qualité de code
+
 Déploiement : déploiement du code en production
